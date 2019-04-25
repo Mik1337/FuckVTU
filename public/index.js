@@ -64,7 +64,7 @@ $(function () {
     $("#sem").on('click', '#sem1',  function() {
             var credit_sum = []
             var sum = [];
-            console.log(credit_sum, sum);
+
             // for (var i=1; i<6; i++) {
               for (var j=0; j<8; j++) {
                   // 5 * 8 lmao, whoever is seeing this, bleach your eyes
@@ -92,7 +92,7 @@ $(function () {
     $("#sem").on('click', '#sem2', function() {
             var credit_sum = []
             var sum = [];
-            console.log(credit_sum, sum);
+
             // for (var i=1; i<6; i++) {
               for (var j=0; j<8; j++) {
                   // 5 * 8 lmao, whoever is seeing this, bleach your eyes
@@ -120,7 +120,7 @@ $(function () {
     $("#sem").on('click', '#sem3',  function() {
             var credit_sum = []
             var sum = [];
-            console.log(credit_sum, sum);
+
             // for (var i=1; i<6; i++) {
               for (var j=0; j<8; j++) {
                   // 5 * 8 lmao, whoever is seeing this, bleach your eyes
@@ -148,7 +148,7 @@ $(function () {
     $("#sem").on('click', '#sem4',  function() {
             var credit_sum = []
             var sum = [];
-            console.log(credit_sum, sum);
+
             // for (var i=1; i<6; i++) {
               for (var j=0; j<8; j++) {
                   // 5 * 8 lmao, whoever is seeing this, bleach your eyes
@@ -176,7 +176,7 @@ $(function () {
     $("#sem").on('click', '#sem5',   function() {
             var credit_sum = []
             var sum = [];
-            console.log(credit_sum, sum);
+
             // for (var i=1; i<6; i++) {
               for (var j=0; j<8; j++) {
                   // 5 * 8 lmao, whoever is seeing this, bleach your eyes
@@ -202,17 +202,21 @@ $(function () {
               $(lost).html(`SGPA: `+parseFloat(hey/m_single).toFixed(2)+` :: Grade: `+m_single+`</br>`);
           } );
 
+
+  $("#cID").on('click', '#fin',   function() {
     var gradeSum = []
     var paidSum = []
-    for (var i=0; i<6;i++) {
+    for (var i=1; i<6;i++) {
       var another = "#heck"+i;
       var variable = $(another).text().split(':');
       // var variable = parseFloat($(yet).text());
+      console.log(variable);
       gradeSum.push(parseFloat(variable[4]));
       paidSum.push(parseFloat(variable[1]));
-
+      // console.log(gradeSum, paidSum);
       $("#gpa").html(`
         <div>`+ paidSum.reduce((a,b)=>a+b,0) / gradeSum.reduce((a,b)=>a+b,0) +`</div>
         `);
-    }
+      }
+  });
 });
