@@ -212,7 +212,7 @@ $(function () {
       // var variable = parseFloat($(yet).text());
       console.log(variable);
       gradeSum.push(parseFloat(variable[4]));
-      paidSum.push(parseFloat(variable[1]));
+      paidSum.push(parseFloat(variable[1])*parseFloat(variable[4]));
       // console.log(gradeSum, paidSum);
       $("#gpa").html(`
         <div>`+ paidSum.reduce((a,b)=>a+b,0) / gradeSum.reduce((a,b)=>a+b,0) +`</div>
