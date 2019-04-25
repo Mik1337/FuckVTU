@@ -39,7 +39,7 @@ $(function () {
             <div class="input-group mb-3 input-group-sm">
               <div class="input-group-prepend">
                 <span class="input-group-text">`+string+`</span>
-                <input type="text" size="12" id="`+ string +`" name="`+ string +`">
+                <input type="text" size="6" id="`+ string +`" name="`+ string +`">
               </div>
               <div class="input-group-prepend">
                 <span class="input-group-text">Grade Point</span>
@@ -49,9 +49,15 @@ $(function () {
             </div>
             `)
         }
-      $("#sem").append(`<button type="button" class="btn btn-primary" id="calc"> Calculate GPA</button></p>`);
-      }
-
+        $("#sem").append(`
+          <div class="input-group mb-3 input-group-sm">
+            <button type="button" class="btn btn-primary" id="sem`+semester+`"> Calculate GPA</button></p>
+            <div class="input-group-postpend">
+              <span class="input-group-text" id=sem`+semester+`></span>
+            </div>
+          </div>
+        `);
+      };
 
     $("#sem").on('click', '#calc', function() {
     // $("#calc").click( function() {
@@ -79,7 +85,11 @@ $(function () {
         }
         var hey = credit_sum.reduce((a,b)=>a+b,0);
         var m_single = sum.reduce((a,b)=>a+b,0);
-        $("#gpa").append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2) +`</br>`);
+        $("#sem"+semesters[i]).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2) +`</br>`);
     });
 
+    $("#fin").append(`
+
+      <div></div>
+    `);
 });
