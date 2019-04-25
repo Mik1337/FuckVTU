@@ -1,0 +1,15 @@
+{
+  "name": "fuckvtu",
+  "version": "1.0.0",
+  "description": "'cause fuck vtu for not giving us our marks cards",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mik",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
