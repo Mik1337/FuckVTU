@@ -86,7 +86,8 @@ $(function () {
           // console.log(Object.keys(semesters));
           var lost = '#'+$(this).attr('name')
           // console.log(lost);
-          $(lost).html(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
+          // $(lost).html(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
+          $(lost).html(parseFloat(hey/m_single).toFixed(2)+`</br>`);
       }
 
     $("#sem").on('click', '#sem1', sendRs );
@@ -95,7 +96,12 @@ $(function () {
     $("#sem").on('click', '#sem4', sendRs );
     $("#sem").on('click', '#sem5', sendRs );
 
-    $("#fin").append(`
-      <div></div>
-    `);
+    for (var i=0; i<6;i++) {
+      var yet = "#heck"+i;
+      var another = $(yet).attr('value');
+      console.log(another);
+      // $("#fin").append(`
+      //   <div></div>
+      //   `);
+    }
 });
