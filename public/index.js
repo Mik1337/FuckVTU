@@ -59,34 +59,41 @@ $(function () {
         `);
       };
 
-    $("#sem").on('click', '#calc', function() {
-    // $("#calc").click( function() {
-      var credit_sum = []
-      var debit_sum = []
-      var sum = [];
-      for (var i=1; i<6; i++) {
-        for (var j=0; j<7; j++) {
-            // 5 * 7 lmao, whoever is seeing this, bleach your eyes
-            var subj = semesters[i][j];
-            var string = "15IM"+subj;
-            var gString = "g"+string;
-            var gStringValue = parseInt($('input[name="'+gString+'"]').val())
+    var sendRs = function() {
+      // $("#calc").click( function() {
+        var credit_sum = []
+        var debit_sum = []
+        var sum = [];
+        for (var i=1; i<6; i++) {
+          for (var j=0; j<7; j++) {
+              // 5 * 7 lmao, whoever is seeing this, bleach your eyes
+              var subj = semesters[i][j];
+              var string = "15IM"+subj;
+              var gString = "g"+string;
+              var gStringValue = parseInt($('input[name="'+gString+'"]').val())
 
-            // if you haven't bleached your eyes yet, you will now...
-            if (sum.length < 7) {
-              sum.push(gStringValue);
+              // if you haven't bleached your eyes yet, you will now...
+              if (sum.length < 7) {
+                sum.push(gStringValue);
+              }
+              // k
+              var gradePoint = gradeConvert(parseInt($('#'+string).val()));
+              var credit = gradePoint * gStringValue;
+              // console.log(gradePoint, gStringValue, credit);
+              credit_sum.push(credit)
             }
-            // k
-            var gradePoint = gradeConvert(parseInt($('#'+string).val()));
-            var credit = gradePoint * gStringValue;
-            // console.log(gradePoint, gStringValue, credit);
-            credit_sum.push(credit)
           }
-        }
-        var hey = credit_sum.reduce((a,b)=>a+b,0);
-        var m_single = sum.reduce((a,b)=>a+b,0);
-        $("#sem"+semesters[i]).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2) +`</br>`);
-    });
+          var hey = credit_sum.reduce((a,b)=>a+b,0);
+          var m_single = sum.reduce((a,b)=>a+b,0);
+          console.log(semesters[i]);
+          $("#sem"+semesters[i]).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
+      }
+
+    $("#sem1").on('click', '#calc', sendRs );
+    $("#sem2").on('click', '#calc', sendRs );
+    $("#sem3").on('click', '#calc', sendRs );
+    $("#sem4").on('click', '#calc', sendRs );
+    $("#sem5").on('click', '#calc', sendRs );
 
     $("#fin").append(`
 
