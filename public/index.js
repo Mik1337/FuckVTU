@@ -51,18 +51,16 @@ $(function () {
         }
         $("#sem").append(`
           <div class="input-group mb-3 input-group-sm">
-            <button type="button" class="btn btn-primary" id="sem`+semester+`"> Calculate GPA</button></p>
+            <button type="button" class="btn btn-primary" name=heck`+semester+` id="sem`+semester+`"> Calculate GPA</button></p>
             <div class="input-group-postpend">
-              <span class="input-group-text" id=sem`+semester+`></span>
+              <span class="input-group-text" id=heck`+semester+`></span>
             </div>
           </div>
         `);
       };
 
-    var sendRs = function() {
-      // $("#calc").click( function() {
+    function sendRs () {
         var credit_sum = []
-        var debit_sum = []
         var sum = [];
         for (var i=1; i<6; i++) {
           for (var j=0; j<7; j++) {
@@ -79,24 +77,25 @@ $(function () {
               // k
               var gradePoint = gradeConvert(parseInt($('#'+string).val()));
               var credit = gradePoint * gStringValue;
-              // console.log(gradePoint, gStringValue, credit);
               credit_sum.push(credit)
             }
           }
           var hey = credit_sum.reduce((a,b)=>a+b,0);
           var m_single = sum.reduce((a,b)=>a+b,0);
-          console.log(semesters[i]);
-          $("#sem"+semesters[i]).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
+
+          // console.log(Object.keys(semesters));
+          var lost = '#'+$(this).attr('name')
+          // console.log(lost);
+          $(lost).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
       }
 
-    $("#sem1").on('click', '#calc', sendRs );
-    $("#sem2").on('click', '#calc', sendRs );
-    $("#sem3").on('click', '#calc', sendRs );
-    $("#sem4").on('click', '#calc', sendRs );
-    $("#sem5").on('click', '#calc', sendRs );
+    $("#sem").on('click', '#sem1', sendRs );
+    $("#sem").on('click', '#sem2', sendRs );
+    $("#sem").on('click', '#sem3', sendRs );
+    $("#sem").on('click', '#sem4', sendRs );
+    $("#sem").on('click', '#sem5', sendRs );
 
     $("#fin").append(`
-
       <div></div>
     `);
 });
