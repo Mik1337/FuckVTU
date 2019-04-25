@@ -86,7 +86,7 @@ $(function () {
           // console.log(Object.keys(semesters));
           var lost = '#'+$(this).attr('name')
           // console.log(lost);
-          $(lost).append(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
+          $(lost).html(`credit earned: `+hey+`, total_grade:`+m_single+`. GPA: `+parseFloat(hey/m_single).toFixed(2)+`</br>`);
       }
 
     $("#sem").on('click', '#sem1', sendRs );
