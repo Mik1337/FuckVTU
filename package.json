@@ -11,6 +11,9 @@
     "start": "yarn build && next start",
     "export": "next export"
   },
+  "engines": {
+    "yarn": "^1.17.3"
+  },
   "dependencies": {
     "next": "^8.0.0",
     "react": "^16.5.1",
