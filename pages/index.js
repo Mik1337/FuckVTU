@@ -1,6 +1,3 @@
-import { timingSafeEqual } from "crypto";
-import { underline } from "ansi-colors";
-
 const gradeConvert = marks => {
   let gradePoint = 0;
   if (marks >= 90) {
